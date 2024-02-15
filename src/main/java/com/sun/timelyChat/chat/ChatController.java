@@ -9,9 +9,7 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class ChatController {
-    //add user
-
-    // send message
+   // send message
     //sent to this endpoint and qued to topic/public
     @MessageMapping("/chat.sendMessage")
     //topic from websocket config
