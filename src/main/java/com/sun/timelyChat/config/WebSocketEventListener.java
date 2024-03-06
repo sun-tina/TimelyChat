@@ -1,7 +1,7 @@
 package com.sun.timelyChat.config;
-import com.sun.timelyChat.chat.*;
 
-import org.apache.logging.log4j.message.Message;
+import com.sun.timelyChat.chat.ChatMessage;
+import com.sun.timelyChat.chat.MessageType;
 import org.springframework.context.event.EventListener;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
@@ -19,13 +19,14 @@ public class WebSocketEventListener {
 
     private final SimpMessageSendingOperations messageTemplate;
 
+    @SuppressWarnings("null")
     @EventListener
     public void handleWebSocketDisconnectListener(SessionDisconnectEvent event){
 
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
         String username = (String) headerAccessor.getSessionAttributes().get("username");
         if (username != null){
-            log.info("User disconnected:{}", username);
+            log.info("User disconnected: {}", username);
             var chatMessage = ChatMessage.builder()
                     .type(MessageType.LEAVE)
                     .sender(username)

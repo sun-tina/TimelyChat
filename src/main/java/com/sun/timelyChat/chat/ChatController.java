@@ -18,6 +18,7 @@ public class ChatController {
         return chatMessage;
     }
     //establishes connection btwn user and websocket
+    @SuppressWarnings("null")
     @MessageMapping("/chat.addUser")
     //topic from websocket config
     @SendTo("/topic/public")

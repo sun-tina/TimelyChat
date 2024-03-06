@@ -1,7 +1,5 @@
 package com.sun.timelyChat.chat;
 
-import org.apache.logging.log4j.message.Message;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
