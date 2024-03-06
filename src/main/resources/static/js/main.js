@@ -1,28 +1,51 @@
+const signupPage = document.querySelector("#signup-page");
 const usernamePage = document.querySelector("#username-page");
 const chatPage = document.querySelector("#chat-page");
+const signupForm = document.querySelector("#signupForm");
 const usernameForm = document.querySelector('#usernameForm');
 const messageForm = document.querySelector("#messageForm")
 const messageInput = document.querySelector("#message");
 const messageArea = document.querySelector("#messageArea");
 const connectingElement = document.querySelector(".connecting");
-const userInput = document.querySelector("#user");
+const userInput = document.querySelector(".form-control");
 
 let stompClient = {};
 let username = null;
 
 // const enterButton = document.getElementById("enter")
+signupForm.addEventListener("submit", connect);
 usernameForm.addEventListener("submit", connect);
 messageForm.addEventListener("submit",sendMessage);
 
-document.getElementById('back').onclick = function(event) {
-    chatPage.classList.add('hidden');
+document.getElementById('login').onclick = function(event) {
     usernamePage.classList.remove('hidden');
+    chatPage.classList.add('hidden');
+    signupPage.classList.add('hidden')
+    event.preventDefault();
+    console.log("button clicked");
+    
+    // alert("button was clicked");
+ };
+
+ document.getElementById('logout').onclick = function(event) {
+    usernamePage.classList.remove('hidden');
+    chatPage.classList.add('hidden');
+    signupPage.classList.add('hidden')
     stompClient.disconnect();
     userInput.value='';
     event.preventDefault();
     console.log("button clicked");
     
     // alert("button was clicked");
+ };
+
+ document.getElementById('sign-up').onclick = function(event) {
+    signupPage.classList.remove('hidden')
+    chatPage.classList.add('hidden');
+    usernamePage.classList.add('hidden');
+    userInput.value='';
+    event.preventDefault();
+    console.log("button clicked");
  };
 
 // function backButton(){
@@ -34,10 +57,19 @@ function connect(event){
     event.preventDefault();
     console.log("connected");
     try{
-        username = document.getElementById('user').value.trim();
-        console.log("username got");
+        loginUser = document.getElementById('user').value.trim();
+        loginUserLength = document.getElementById('user').value.trim().length;
+        signupUser = document.getElementById('username').value.trim();
+        signupUserLength = document.getElementById('username').value.trim().length;
+        if (loginUserLength > 0){
+            username = loginUser;
+        }else{
+            username = signupUser;
+        }
+        console.log(username);
         if(username){
-            console.log(username);
+            console.log("username got");
+            signupPage.classList.add('hidden');
             usernamePage.classList.add('hidden');
             chatPage.classList.remove('hidden');
             
@@ -52,6 +84,7 @@ function connect(event){
             //   // Handle the connection error appropriately
             // });
         }else{
+            console.log(username);
             console.error("username not found");
         }
     }catch(error){

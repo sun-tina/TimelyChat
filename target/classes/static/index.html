@@ -6,17 +6,40 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-<!--sign on-->
+<!--login-->
 <div id="username-page">
     <div class="username-page-container">
         <h1 class="title">login </h1>
         <form id="usernameForm" name="usernameForm">
             <div class="form-group">
                 <input type="text" id="user" placeholder="username" autocomplete="off" class="form-control" />
-                <input type="text" id="password" placeholder="chatroom access code" autocomplete="off" class="form-control"/>
+                <input type="text" id="code" placeholder="chatroom access code" autocomplete="off" class="form-control"/>
+                <input type="text" id="password" placeholder="password" autocomplete="off" class="form-control"/>
+
             </div>
             <div class="form-group">
                 <button type="submit" id="enter" class="sign username-submit">Enter</button>
+                <button type="button" id="sign-up" class="sign username-submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--sign up form-->
+<div id="signup-page">
+    <div class="signup-page-container">
+        <h1 class="title">Sign up </h1>
+        <form id="signupForm" name="signupForm">
+            <div class="form-group">
+                <input type="text" id="username" placeholder="username" autocomplete="off" class="form-control" />
+                <input type="text" id="new-password" placeholder="password" autocomplete="off" class="form-control"/>
+                <input type="text" id="email" placeholder="email" autocomplete="off" class="form-control"/>
+                <input type="text" id="code" placeholder="access code" autocomplete="off" class="form-control"/>
+
+            </div>
+            <div class="form-group">
+                <button type="submit" id="enter" class="sign username-submit">Enter</button>
+                <button type="button" id="login" class="login">Login</button>
             </div>
         </form>
     </div>
@@ -24,7 +47,7 @@
 <!--chat page-->
 <div id="chat-page" class="hidden">
     <div class="chat-container">
-        <button type="button" id="back" class="back">back</button>
+        <button type="button" id="logout" class="logout">logout</button>
         <div class="chat-header">
             <h2>Chatterbox</h2>
         </div>
