@@ -211,7 +211,6 @@ button.login {
 }
 
 #chat-page .chat-message {
-    padding-left: 68px;
     position: relative;
 }
 
@@ -220,7 +219,6 @@ button.login {
     height: 42px;
     overflow: hidden;
     left: 10px;
-    display: block;
     font-size: 18px;
     line-height: 42px;
     color: #fff;
