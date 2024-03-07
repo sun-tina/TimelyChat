@@ -3,7 +3,7 @@ package com.sun.timelyChat.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "USERS")
 public class User {
 
     @Id
@@ -51,12 +51,12 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String email, String password){
+    public User(String username, String email){
         this.username = username;
         this.email = email;
-        this.password = password;
 
     }
+    
     //toString method
     @Override
     public String toString(){

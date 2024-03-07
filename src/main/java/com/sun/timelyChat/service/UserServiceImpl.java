@@ -44,8 +44,10 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @SuppressWarnings("null")
     @Override
     public User updateUser(User user) throws ServiceException {
+        @SuppressWarnings("null")
         Optional<User> existingUser = userRepository.findById(user.getId());
         if (!existingUser.isPresent()) {
             throw new ServiceException("User not found");
@@ -63,6 +65,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @SuppressWarnings("null")
     @Override
     public void deleteUser(Long id) throws ServiceException {
         if (!userRepository.existsById(id)) {
